@@ -109,13 +109,14 @@ module.exports = function(
   );
 
   if (fs.existsSync(templateDependenciesPath)) {
-    console.log(`Installing additional dependencies from ${templateDependenciesPath}...`);
     const templateDependencies = require(templateDependenciesPath).dependencies;
     args = args.concat(
       Object.keys(templateDependencies).map(key => {
         return `${key}@${templateDependencies[key]}`;
       })
     );
+    console.log(`Installing additional dependencies from ${templateDependenciesPath}:`);
+    console.log(`Following deps: ${args.join(', ')}`);
     fs.unlinkSync(templateDependenciesPath);
   } else {
     console.log(`No additional dependencies found (${templateDependenciesPath})`);

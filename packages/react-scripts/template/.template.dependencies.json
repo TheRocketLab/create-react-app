@@ -1,28 +1,19 @@
 {
   "dependencies": {
-    "@material-ui/core": "",
-    "@material-ui/icons": "",
-    "lodash": "",
+    "@material-ui/core": "*",
+    "@material-ui/icons": "*",
+    "lodash": "*",
     "material-ui-pickers": "^1.0.0-rc.11",
-    "moment": "",
-    "numeral": "",
-    "prop-types": "",
-    "react-router-dom": "",
-    "recompose": "",
-    "styled-components": ""
-  }, 
-  "devDependencies": {
-    "eslint-config-prettier": "",
-    "eslint-plugin-prettier": "",
-    "husky": "",
-    "prettier": "",
-    "pretty-quick": ""
-  },
-  "prettier": {
-    "semi": true,
-    "useTabs": false,
-    "singleQuote": true,
-    "trailingComma": "es5",
-    "arrowParens": "avoid"
+    "moment": "*",
+    "numeral": "*",
+    "prop-types": "*",
+    "react-router-dom": "*",
+    "recompose": "*",
+    "styled-components": "*",
+    "eslint-config-prettier": "*",
+    "eslint-plugin-prettier": "*",
+    "husky": "*",
+    "prettier": "*",
+    "pretty-quick": "*"
   }
 }
