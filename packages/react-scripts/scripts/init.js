@@ -91,7 +91,7 @@ module.exports = function(
   );
 
   const command = 'yarnpkg';
-  const args = ['add'];
+  let args = ['add'];
   args.push('react', 'react-dom');
 
   // Install additional template dependencies, if present
