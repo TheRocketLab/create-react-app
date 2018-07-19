@@ -116,7 +116,7 @@ module.exports = function(
       })
     );
     console.log(`Installing additional dependencies from ${templateDependenciesPath}:`);
-    console.log(`Following deps: ${args.join(', ')}`);
+    console.log(chalk.bold(`Following deps: ${command} ${args.join(' ')}`));
     fs.unlinkSync(templateDependenciesPath);
   } else {
     console.log(`No additional dependencies found (${templateDependenciesPath})`);
@@ -134,6 +134,9 @@ module.exports = function(
       console.error(`\`${command} ${args.join(' ')}\` failed`);
       return;
     }
+  } else {
+    console.log(chalk.bold(`App is installed: ${isReactInstalled(appPackage)}`));
+    console.log(chalk.bold(`Template: ${template}`));
   }
 
   // Display the most elegant way to cd.
