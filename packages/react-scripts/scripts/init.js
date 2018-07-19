@@ -107,8 +107,9 @@ module.exports = function(
     appPath,
     '.template.dependencies.json'
   );
-  console.log({templateDependenciesPath})
+
   if (fs.existsSync(templateDependenciesPath)) {
+    console.log(`Installing additional dependencies from ${templateDependenciesPath}...`);
     const templateDependencies = require(templateDependenciesPath).dependencies;
     args = args.concat(
       Object.keys(templateDependencies).map(key => {
@@ -116,6 +117,8 @@ module.exports = function(
       })
     );
     fs.unlinkSync(templateDependenciesPath);
+  } else {
+    console.log(`No additional dependencies found (${templateDependenciesPath})`);
   }
 
   // Install react and react-dom for backward compatibility with old CRA cli
