@@ -107,8 +107,6 @@ module.exports = function(
         return `${key}@${templateDependencies[key]}`;
       })
     );
-    console.log(`Installing additional dependencies from ${templateDependenciesPath}:`);
-    console.log(chalk.bold(`Following deps: ${command} ${args.join(' ')}`));
     fs.unlinkSync(templateDependenciesPath);
   } else {
     console.log(`No additional dependencies found (${templateDependenciesPath})`);
@@ -117,18 +115,14 @@ module.exports = function(
   // Install react and react-dom for backward compatibility with old CRA cli
   // which doesn't install react and react-dom along with react-scripts
   // or template is presetend (via --internal-testing-template)
-  if (args.length > 3)
-    console.log(`Installing react and react-dom using ${command}...`);
-    console.log();
+  if (args.length > 3) {
+    console.log(chalk.green(`Installing dependencies using ${command} ${args.join(' ')}...`));
 
     const proc = spawn.sync(command, args, { stdio: 'inherit' });
     if (proc.status !== 0) {
       console.error(`\`${command} ${args.join(' ')}\` failed`);
       return;
     }
-  } else {
-    console.log(chalk.bold(`App is installed: ${isReactInstalled(appPackage)}`));
-    console.log(chalk.bold(`Template: ${template}`));
   }
 
   // Display the most elegant way to cd.
